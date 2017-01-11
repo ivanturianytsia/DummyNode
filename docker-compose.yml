@@ -1,0 +1,41 @@
+version: '2'
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    volumes:
+      - /root/dummynode/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - /root/dummynode/public:/public
+    ports:
+      - "80:80"
+    links:
+      - dummy1:dummy1
+      - dummy2:dummy2
+      - dummy3:dummy3
+    environment:
+      - NGINX_HOST=localhost
+      - NGINX_PORT=80
+  dummy1:
+    build: .
+    image: dummynode
+    container_name: dummy1
+    environment:
+      - APP_NAME='dummy1'
+      - PORT=3000
+    restart: always
+  dummy2:
+    build: .
+    image: dummynode
+    container_name: dummy2
+    environment:
+      - APP_NAME='dummy2'
+      - PORT=3000
+    restart: always
+  dummy3:
+    build: .
+    image: dummynode
+    container_name: dummy3
+    environment:
+      - APP_NAME='dummy3'
+      - PORT=3000
+    restart: always
