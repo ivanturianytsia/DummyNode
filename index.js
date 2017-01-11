@@ -20,7 +20,7 @@ let getRandomColor = () => {
 	return `rgb(${red},${green},${blue})`;
 }
 
-const color = process.env.getRandomColor();
+const color = getRandomColor();
 
 app.get('/', (req, res, next) => {
 	let page = `<!DOCTYPE html><html><head><title>DummyPage - ${color}</title><style>body{background-color: ${color};}</style></head><body></body></html>`
