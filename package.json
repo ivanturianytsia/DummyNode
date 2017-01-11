@@ -1,0 +1,23 @@
+{
+	"name": "dummy",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"docker": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ivanturianytsia/DummyNode.git"
+	},
+	"author": "Ivan Turianytsia",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/ivanturianytsia/DummyNode/issues"
+	},
+	"homepage": "https://github.com/ivanturianytsia/DummyNode#readme",
+	"dependencies": {
+		"express": "^4.14.0"
+	}
+}
