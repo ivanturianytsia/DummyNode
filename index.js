@@ -6,13 +6,24 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
+let getRandomNumber = (min, max) => {
+	min = min || 0;
+	max = max || 0;
+	return min + Math.floor(Math.random() * 100000 % (max - min));
+}
+
+let getRandomColor = () => {
+	let red = getRandomNumber(0, 255);
+	let green = getRandomNumber(0, 255);
+	let blue = getRandomNumber(0, 255);
+
+	return `rgb(${red},${green},${blue})`;
+}
+
+const color = process.env.getRandomColor();
+
 app.get('/', (req, res, next) => {
-	let page = "<h1>Enviromental variables:</h1>";
-	page += "<table>"
-	page += Object.keys(process.env).map((item) => {
-		return `<tr><td>${item}</td><td>${process.env[item]}</td><tr>`
-	}).join("");
-	page += "</table>"
+	let page = `<!DOCTYPE html><html><head><title>DummyPage - ${color}</title><style>body{background-color: ${color};}</style></head><body></body></html>`
 
 	res.send(page);
 });
